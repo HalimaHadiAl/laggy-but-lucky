@@ -125,7 +125,7 @@ const Ico = {
       <path d="M6.3 2.841A1.5 1.5 0 004 4.11V15.89a1.5 1.5 0 002.3 1.269l9.344-5.89a1.5 1.5 0 000-2.538L6.3 2.84z" />
     </svg>
   ),
-  check: (color = "white") => (
+  check: ({ color = "white" }: { color?: string } = {}) => (
     <svg viewBox="0 0 12 12" fill="none" stroke={color} strokeWidth={1.8} style={{ width: 10, height: 10 }}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M2 6l2.5 2.5L10 3.5" />
     </svg>
