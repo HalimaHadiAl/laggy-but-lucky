@@ -7,16 +7,16 @@ import { useState, useEffect, useRef } from "react";
 const teamMembers = [
   {
     name: "Halima Hadi Alfina",
-    role: "Game Programmer & Project Manager",
-    desc: "Merancang mekanik gameplay yang unik dan pengalaman pemain yang tak terlupakan & Mengoordinasikan tim dan memastikan setiap milestone tercapai dengan sempurna.",
+    role: "Game Designer",
+    desc: "Merancang mekanik gameplay yang unik dan pengalaman pemain yang tak terlupakan.",
     photo: "",
     initials: "HH",
     gradient: "linear-gradient(135deg,#60a5fa,#6366f1)",
   },
   {
     name: "Eu Kharistia Banura",
-    role: "Game Programmer",
-    desc: "Menciptakan antarmuka visual yang intuitif dan estetika game yang memukau melalui code program.",
+    role: "UI/UX Designer",
+    desc: "Menciptakan antarmuka visual yang intuitif dan estetika game yang memukau.",
     photo: "",
     initials: "EK",
     gradient: "linear-gradient(135deg,#a78bfa,#7c3aed)",
@@ -31,7 +31,7 @@ const teamMembers = [
   },
   {
     name: "Nurjihan Nabila Muntaz",
-    role: "Game Designer/Writer",
+    role: "2D Artist",
     desc: "Menghidupkan dunia game melalui ilustrasi karakter dan aset visual yang artistik.",
     photo: "",
     initials: "NN",
@@ -39,8 +39,8 @@ const teamMembers = [
   },
   {
     name: "Salmadinda Aishella",
-    role: "Game Asset Developer",
-    desc: "Menciptakan antarmuka visual yang intuitif dan estetika game yang memukau.",
+    role: "Project Manager",
+    desc: "Mengoordinasikan tim dan memastikan setiap milestone tercapai dengan sempurna.",
     photo: "",
     initials: "SA",
     gradient: "linear-gradient(135deg,#c084fc,#6366f1)",
@@ -52,8 +52,8 @@ const categories = ["All", "Unity / Game", "UI/UX", "Web Dev", "Data / AI", "IoT
 
 const projects = [
   // Unity first
-  { id: 1,  title: "2D Game: Unity Ping Pong",         category: "Unity / Game", emoji: "🏓", bg: "linear-gradient(135deg,#1e1b4b,#4338ca,#6366f1)", tag: "Unity",        src: "" },
-  { id: 2,  title: "2D Game: Unity Object Recognition",category: "Unity / Game", emoji: "🎯", bg: "linear-gradient(135deg,#312e81,#6366f1,#818cf8)", tag: "Unity",        src: "" },
+  { id: 1,  title: "3D Game: Unity Ping Pong",         category: "Unity / Game", emoji: "🏓", bg: "linear-gradient(135deg,#1e1b4b,#4338ca,#6366f1)", tag: "Unity",        src: "" },
+  { id: 2,  title: "3D Game: Unity Object Recognition",category: "Unity / Game", emoji: "🎯", bg: "linear-gradient(135deg,#312e81,#6366f1,#818cf8)", tag: "Unity",        src: "" },
   { id: 3,  title: "3D Game Development Using Unity",   category: "Unity / Game", emoji: "🎮", bg: "linear-gradient(135deg,#0f172a,#312e81,#4f46e5)", tag: "Unity 3D",     src: "" },
   // UI/UX
   { id: 4,  title: "UI/UX Web Design Figma 1",          category: "UI/UX",       emoji: "🖌️", bg: "linear-gradient(135deg,#ede9fe,#c4b5fd,#a78bfa)", tag: "Figma",        src: "" },
@@ -130,11 +130,13 @@ const Ico = {
       <path strokeLinecap="round" strokeLinejoin="round" d="M2 6l2.5 2.5L10 3.5" />
     </svg>
   ),
-  menu: () => (
-  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ width: 22, height: 22 }}>
-    <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />
-  </svg>
-),
+  menu: (open: boolean) => (
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={2} style={{ width: 22, height: 22 }}>
+      {open
+        ? <path strokeLinecap="round" strokeLinejoin="round" d="M6 18L18 6M6 6l12 12" />
+        : <path strokeLinecap="round" strokeLinejoin="round" d="M3.75 6.75h16.5M3.75 12h16.5m-16.5 5.25h16.5" />}
+    </svg>
+  ),
   users: () => (
     <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth={1.5} style={{ width: 20, height: 20 }}>
       <path strokeLinecap="round" strokeLinejoin="round" d="M18 18.72a9.094 9.094 0 003.741-.479 3 3 0 00-4.682-2.72m.94 3.198l.001.031c0 .225-.012.447-.037.666A11.944 11.944 0 0112 21c-2.17 0-4.207-.576-5.963-1.584A6.062 6.062 0 016 18.719m12 0a5.971 5.971 0 00-.941-3.197m0 0A5.995 5.995 0 0012 12.75a5.995 5.995 0 00-5.058 2.772m0 0a3 3 0 00-4.681 2.72 8.986 8.986 0 003.74.477m.94-3.197a5.971 5.971 0 00-.94 3.197M15 6.75a3 3 0 11-6 0 3 3 0 016 0zm6 3a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0zm-13.5 0a2.25 2.25 0 11-4.5 0 2.25 2.25 0 014.5 0z" />
@@ -735,7 +737,7 @@ export default function Page() {
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center" }}>
                   <button
-                    onClick={() => window.open("https://drive.google.com/drive/folders/1V8Tn8Lzrsi4GxXjxpPm6_XDMIxETdvnd?usp=sharing", "_blank")}
+                    onClick={() => window.open("https://drive.google.com", "_blank")}
                     style={{ display: "flex", alignItems: "center", gap: 10, background: "white", color: "#4f46e5", fontWeight: 700, padding: "14px 26px", borderRadius: 16, fontSize: 14, border: "none", cursor: "pointer", boxShadow: "0 8px 28px rgba(0,0,0,.18)", transition: "transform .25s, box-shadow .25s" }}
                     onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-2px)"; el.style.boxShadow = "0 14px 36px rgba(0,0,0,.24)"; }}
                     onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = ""; el.style.boxShadow = "0 8px 28px rgba(0,0,0,.18)"; }}
