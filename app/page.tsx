@@ -735,7 +735,7 @@ export default function Page() {
                 </p>
                 <div style={{ display: "flex", flexWrap: "wrap", gap: 14, justifyContent: "center" }}>
                   <button
-                    onClick={() => window.open("https://drive.google.com", "_blank")}
+                    onClick={() => window.open("https://drive.google.com/drive/folders/1V8Tn8Lzrsi4GxXjxpPm6_XDMIxETdvnd?usp=drive_link", "_blank")}
                     style={{ display: "flex", alignItems: "center", gap: 10, background: "white", color: "#4f46e5", fontWeight: 700, padding: "14px 26px", borderRadius: 16, fontSize: 14, border: "none", cursor: "pointer", boxShadow: "0 8px 28px rgba(0,0,0,.18)", transition: "transform .25s, box-shadow .25s" }}
                     onMouseEnter={e => { const el = e.currentTarget as HTMLElement; el.style.transform = "translateY(-2px)"; el.style.boxShadow = "0 14px 36px rgba(0,0,0,.24)"; }}
                     onMouseLeave={e => { const el = e.currentTarget as HTMLElement; el.style.transform = ""; el.style.boxShadow = "0 8px 28px rgba(0,0,0,.18)"; }}
